@@ -1,0 +1,20 @@
+server: 
+ port: 8761
+eureka: 
+ instance: 
+  hostname: localhost
+ client: 
+  registerWithEureka: false #有这两个属性表示不需要向自己注册，表明自己为ecureka server
+  fetchRegistry: false
+  serviceUrl: 
+   defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+spring:
+ application: 
+  name: eureka-server  #注册中心
+info: #/info请求的显示信息
+ app: 
+  name: ${spring.application.name}
+  version: 1.0.0
+ build: 
+  artifactId: @project.artifactId@
+  version: @project.version@  

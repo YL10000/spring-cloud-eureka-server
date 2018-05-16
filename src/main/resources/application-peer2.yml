@@ -1,0 +1,19 @@
+#application-peer2.yml
+server: 
+ port: 8769
+eureka: 
+ instance: 
+  hostname: peer2
+ client: 
+  serviceUrl: 
+   defaultZone: http://peer1:8761/eureka/  #向peer1进行注册
+spring:
+ application: 
+  name: eureka-server  #注册中心
+info: #/info请求的显示信息
+ app: 
+  name: ${spring.application.name}
+  version: 1.0.0
+ build: 
+  artifactId: @project.artifactId@
+  version: @project.version@  
